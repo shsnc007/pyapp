@@ -23,7 +23,7 @@
 <body>
     <div class="king-block king-block-bordered">
         <div class="king-block-header king-gray-light">
-            <h3 class="king-block-title">综合示例</h3>
+            <h3 class="king-block-title">监控断采统计分析</h3>
         </div>
         <div class="king-block-content">
             <table id="table2_demo4" class="table table-bordered table-striped">
@@ -33,10 +33,9 @@
                         <th>指标名称</th>
                         <th>指标Key</th>
                         <th>采集周期</th>
-                        <th>total</th>
-                        <th>count</th>
-                        <th>percent</th>
-                        <th>操作</th>
+                        <th>应采总数</th>
+                        <th>实采总数</th>
+                        <th>百分比</th>
                     </tr>
                 </thead>
             </table>
@@ -70,20 +69,20 @@
         ajax : '${STATIC_URL}data.json',
         ordering: true,
         columns : [
-          {data:"hname",orderable: false},
+          {data:"hname"},
           {data:"iname"},
           {data:"key"},
           {data:"delay"},
           {data:"total"},
           {data:"count"},
-          {data:"percent"},
-          {
-            data:null,
-            orderable:false,
-            render : function(data, type, row, meta){
-                return '<a class="king-btn king-default del">删除</a>';
-            }
-          }
+          {data:"percent", orderable: true},
+          //{
+           // data:null,
+           // orderable:false,
+           // render : function(data, type, row, meta){
+           //     return '<a class="king-btn king-default del">删除</a>';
+           // }
+          //}
         ],
         language:language
     });
