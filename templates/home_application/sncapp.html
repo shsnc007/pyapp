@@ -67,7 +67,8 @@
         lengthMenu: [50, 100, 200], //每页显示选项
         pagingType: 'full_numbers',
         ajax : '${STATIC_URL}data.json',
-        ordering: true,
+        "order": [[6,'desc']],
+        // ordering: [[7, 'desc']],
         columns : [
           {data:"hname"},
           {data:"iname"},
@@ -75,7 +76,7 @@
           {data:"delay"},
           {data:"total"},
           {data:"count"},
-          {data:"percent", orderable: true},
+          {data:"percent"},
           //{
            // data:null,
            // orderable:false,
