@@ -36,7 +36,7 @@ def contactus(request):
     return render_mako_context(request, '/home_application/contact.html')
 
 def sncapp(request):
-    res = SncData.objects.all()
+    res = SncData.objects.order_by('percent')
     res_dicts = {"data":[]}
     for row in res:
         res_dict = {}
@@ -46,7 +46,7 @@ def sncapp(request):
         res_dict["delay"] = row.delay
         res_dict["total"] = row.total
         res_dict["count"] = row.count
-        res_dict["percent"] = row.percent
+        res_dict["percent"] = '{}{}'.format(row.percent * 100, '%')
         res_dicts["data"].append(res_dict)
     
     with open(STATICFILES_DIRS[0] + '/data.json', 'wb') as f:
